@@ -5,6 +5,13 @@ import {
   InboxIcon,
 } from '@heroicons/react/24/outline';
 import { lusitana } from '@/app/ui/fonts';
+import { FC } from 'react';
+
+interface CardProps {
+  title: string;
+  value: number | string;
+  type: 'invoices' | 'customers' | 'pending' | 'collected';
+}
 
 const iconMap = {
   collected: BanknotesIcon,
@@ -13,7 +20,7 @@ const iconMap = {
   invoices: InboxIcon,
 };
 
-export default async function CardWrapper() {
+const CardWrapper = () => {
   return (
     <>
       {/* NOTE: Uncomment this code in Chapter 9 */}
@@ -30,15 +37,11 @@ export default async function CardWrapper() {
   );
 }
 
-export function Card({
+export const Card: FC<CardProps> = ({
   title,
   value,
   type,
-}: {
-  title: string;
-  value: number | string;
-  type: 'invoices' | 'customers' | 'pending' | 'collected';
-}) {
+}) => {
   const Icon = iconMap[type];
 
   return (
@@ -56,3 +59,5 @@ export function Card({
     </div>
   );
 }
+
+export default CardWrapper;
