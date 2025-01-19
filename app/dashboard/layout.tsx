@@ -5,6 +5,8 @@ interface Props {
     children: ReactNode;
 }
 
+export const experimental_ppr = true;
+
 const Layout: FC<Props> = ({ children }) => {
     return (
         <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
